@@ -19,10 +19,18 @@ case $1 in
         FINISH
         ;;
     debug_logs)
+        BEGIN
+
         appcfg.py --severity 0 request_logs . logs.txt
+
+        FINISH
         ;;
     logs)
+        BEGIN
+
         appcfg.py request_logs . logs.txt
+
+        FINISH
         ;;
 
     *)
