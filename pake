@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# Quick and shitty make/rake/whatever dropin for my common tasks
+
+BEGIN() {
+    set -x
+}
+
+FINISH() {
+    set +x
+}
+
+case $1 in
+    deploy)
+        BEGIN
+
+        appcfg.py update .
+
+        FINISH
+        ;;
+    debug_logs)
+        appcfg.py --severity 0 request_logs . logs.txt
+        ;;
+    logs)
+        appcfg.py request_logs . logs.txt
+        ;;
+
+    *)
+        echo "Unknown command '$1'"
+        ;;
+esac
+
