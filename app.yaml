@@ -6,6 +6,9 @@ runtime: python27
 version: 0-1-alpha
 
 handlers:
+- url: /assets
+  static_dir: assets
+
 - url: /.*
   script: router.app
 
