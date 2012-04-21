@@ -9,5 +9,4 @@ handlers:
 - url: /.*
   script: router.app
 
-# threadsafe: true
-threadsafe: false
+threadsafe: true
