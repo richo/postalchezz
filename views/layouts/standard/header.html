@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>${ title }$</title>
+    <title>Postal Chess ${ if hasattr(self, "title"): self.title }$</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -38,10 +38,7 @@
               <li class="${ if self.is_active("about"): emit("active") }$"><a href="/about">About</a></li>
               <li class="${ if self.is_active("contact"): emit("active") }$"><a href="/contact">Contact</a></li>
             </ul>
-            <ul class="nav pull-right">
-              <li class="${ if self.is_active("login"): emit("active") }$   "><a href="/login">Login</a></li>
-              <li class="${ if self.is_active("register"): emit("active") }$"><a href="/register">Register</a></li>
-            </ul>
+${ emit(self.include("views/partials/login_div.html")) }$
           </div><!--/.nav-collapse -->
         </div>
       </div>

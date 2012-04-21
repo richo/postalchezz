@@ -1,0 +1,6 @@
+${
+  if self.logged_in():
+    self.include("views/partials/login_div/logged_in.html")
+  else:
+    self.include("views/partials/login_div/logged_out.html")
+}$

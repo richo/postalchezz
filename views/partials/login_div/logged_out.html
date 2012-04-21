@@ -1,0 +1,4 @@
+<ul class="nav pull-right">
+  <li class="${ if self.is_active("login"): emit("active") }$   "><a href="/login">Login</a></li>
+  <li class="${ if self.is_active("register"): emit("active") }$"><a href="/register">Register</a></li>
+</ul>
