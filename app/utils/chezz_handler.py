@@ -2,27 +2,22 @@ import webapp2
 
 from templite import Templite
 
-# TODO This could potentially be just a getter instead of a decorator.
-# \BENCHMARK
-def preload_template(func):
-    """ Ensures that the specified view is already compiled and exists in
-    the templates hash"""
-    def _(self, view_path):
-        if view_path not in self.templates:
-            self.templates[view_path] = Templite.from_file(view_path)
-
-        return func(self, view_path)
-    return _
-
 class ChezzHandler(webapp2.RequestHandler):
     templates = {}
 
-    @preload_template
-    def render(self, view_path):
-        content = self.templates[view_path](self = self)
+    def render(self, view_path, **context):
+        context.update({"self": self})
+        template = self.get_template(view_path)
+
+        content = template(context)
 
         # XXX Kludge?
         # if view_path[-5:] == ".haml":
         #     content = dehamlinate(content)
 
         self.response.out.write(content)
+
+    def get_template(self, view_path):
+        if view_path not in self.templates:
+            self.templates[view_path] = Templite.from_file(view_path)
+        return self.templates[view_path]
