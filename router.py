@@ -1,4 +1,3 @@
-import app.index
 import webapp2
 import app.index as index
 
