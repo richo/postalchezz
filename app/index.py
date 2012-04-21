@@ -1,6 +1,6 @@
 from utils import ChezzHandler
 
-class App(ChezzHandler):
+class Index(ChezzHandler):
 
     def get(self):
         self.render("views/index.html")

@@ -21,3 +21,6 @@ class ChezzHandler(webapp2.RequestHandler):
         if view_path not in self.templates:
             self.templates[view_path] = Templite.from_file(view_path)
         return self.templates[view_path]
+
+    def is_active(self, cls):
+        return self.__class__.__name__.lower() == cls

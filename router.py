@@ -1,10 +1,8 @@
 import webapp2
-import app.index as index
-import app.about as about
-import app.contact as contact
+import app as chezz_app
 
 app = webapp2.WSGIApplication([
-  ('/', index.App),
-  ('/about', about.App),
-  ('/contact', contact.App)
+  ('/',         chezz_app.Index),
+  ('/about',    chezz_app.About),
+  ('/contact',  chezz_app.Contact)
 ])
