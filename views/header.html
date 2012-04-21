@@ -38,6 +38,9 @@
               <li class="${ if self.is_active("about"): emit("active") }$"><a href="/about">About</a></li>
               <li class="${ if self.is_active("contact"): emit("active") }$"><a href="/contact">Contact</a></li>
             </ul>
+            <ul class="nav pull-right">
+              <li class="${ if self.is_active("login"): emit("active") }$   "><a href="/login">Login</a></li>
+            </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>

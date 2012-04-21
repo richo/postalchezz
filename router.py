@@ -4,5 +4,6 @@ import app as chezz_app
 app = webapp2.WSGIApplication([
   ('/',         chezz_app.Index),
   ('/about',    chezz_app.About),
-  ('/contact',  chezz_app.Contact)
+  ('/contact',  chezz_app.Contact),
+  ('/login',    chezz_app.Login)
 ])
