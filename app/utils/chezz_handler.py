@@ -1,6 +1,8 @@
 import os
 import webapp2
 
+import hashlib
+
 from templite import Templite
 
 class ChezzHandler(webapp2.RequestHandler):
@@ -37,3 +39,8 @@ class ChezzHandler(webapp2.RequestHandler):
 
     def logged_in(self):
         return self.request.get("logged_in") or False
+
+    def hash(self, data):
+        hasher = hashlib.sha512()
+        hasher.update(data)
+        return hasher.hexdigest()

@@ -2,15 +2,25 @@
   <div class="span4 offset4">
 
   <h1>Register</h1>
-  <form class="well">
+${
+try:
+    if invalid: emit(self.include("views/register/invalid.html"))
+except NameError: pass
+
+try:
+    if username_taken: emit(self.include("views/register/username_taken.html"))
+except NameError: pass
+}$
+
+  <form class="well" action="/register" method="post">
     ${ # TODO AJAX check availability }$
 
-    <label>Desired Username
-      <input type="text" class="input-medium">
+    <label>Email Address
+      <input name="email" type="text" class="input-medium">
     </label>
 
     <label>Password
-      <input type="password" class="input-medium">
+      <input name="password" type="password" class="input-medium">
     </label>
 
     <button type="submit" class="btn">Submit</button>
