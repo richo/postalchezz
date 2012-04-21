@@ -18,6 +18,13 @@ case $1 in
 
         FINISH
         ;;
+    rollback)
+        BEGIN
+
+        appcfg.py rollback .
+
+        FINISH
+        ;;
     debug_logs)
         BEGIN
 
