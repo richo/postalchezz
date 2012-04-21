@@ -43,3 +43,11 @@ ${ emit(self.include("views/partials/login_div.html")) }$
         </div>
       </div>
     </div>
+    <div class="container-fluid">
+      <div class="row-fluid">
+${
+if self.logged_in():
+  emit(self.include("views/layouts/standard/sidebar.html"))
+}$
+
+      <div class="span9">
