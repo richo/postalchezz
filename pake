@@ -10,34 +10,24 @@ FINISH() {
     set +x
 }
 
+appcfg() {
+    BEGIN
+    appcfg.py --oauth2 "$@"
+    FINISH
+}
+
 case $1 in
     deploy)
-        BEGIN
-
-        appcfg.py update .
-
-        FINISH
+        appcfg update .
         ;;
     rollback)
-        BEGIN
-
-        appcfg.py rollback .
-
-        FINISH
+        appcfg rollback .
         ;;
     debug_logs)
-        BEGIN
-
-        appcfg.py --severity 0 request_logs . logs.txt
-
-        FINISH
+        appcfg --severity 0 request_logs . logs.txt
         ;;
     logs)
-        BEGIN
-
-        appcfg.py request_logs . logs.txt
-
-        FINISH
+        appcfg request_logs . logs.txt
         ;;
 
     *)
