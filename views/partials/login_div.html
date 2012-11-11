@@ -1,5 +1,5 @@
 ${
-  if self.logged_in():
+  if self.current_user():
     emit(self.include("views/partials/login_div/logged_in.html"))
   else:
     emit(self.include("views/partials/login_div/logged_out.html"))

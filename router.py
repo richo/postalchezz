@@ -6,5 +6,4 @@ app = webapp2.WSGIApplication([
   ('/about',    chezz_app.About),
   ('/contact',  chezz_app.Contact),
   ('/login',    chezz_app.Login),
-  ('/register', chezz_app.Register)
 ])

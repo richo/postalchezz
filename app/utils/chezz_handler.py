@@ -5,8 +5,11 @@ import hashlib
 
 from templite import Templite
 
+from google.appengine.api import users
+
 class ChezzHandler(webapp2.RequestHandler):
     templates = {}
+    users = users
 
     def render(self, view_path, layout="standard", **context):
         header_path = os.path.join("views", "layouts", layout, "header.html")
@@ -44,3 +47,6 @@ class ChezzHandler(webapp2.RequestHandler):
         hasher = hashlib.sha512()
         hasher.update(data)
         return hasher.hexdigest()
+
+    def current_user(self):
+        return users.get_current_user()
